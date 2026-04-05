@@ -1,0 +1,27 @@
+{
+  "name": "playwright-kit-profesional",
+  "version": "1.0.0",
+  "description": "Kit de arranque profesional para automatizacion con Playwright + TypeScript. Listo para hacer fork y empezar a testear.",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:ui": "npx playwright test --ui",
+    "test:debug": "npx playwright test --debug",
+    "report": "npx playwright show-report"
+  },
+  "keywords": [
+    "playwright",
+    "testing",
+    "automation",
+    "qa",
+    "typescript",
+    "page-object-model"
+  ],
+  "author": "Adriana Troche Robles <hola@calidadsinhumo.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.51.0",
+    "@types/node": "^25.5.2",
+    "typescript": "^5.7.0"
+  }
+}
