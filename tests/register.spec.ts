@@ -2,18 +2,18 @@ import { test, expect } from "../fixtures/base.fixture";
 import { VALID_USER, INVALID_USERS } from "../test-data/users";
 
 /**
- * Tests para la pagina de Registro.
+ * Tests para la página de Registro.
  *
- * Estos tests demuestran la tecnica de particion de equivalencia:
- * dividir los datos de entrada en clases (validas e invalidas)
+ * Estos tests demuestran la técnica de partición de equivalencia:
+ * dividir los datos de entrada en clases (válidas e inválidas)
  * y probar un representante de cada una.
  *
- * Tecnica ISTQB aplicada: particion de equivalencia + valores limite.
- * Aprende mas: https://calidadsinhumo.com/istqb-sin-humo/istqb-con-codigo-parte-1
+ * Técnica ISTQB aplicada: partición de equivalencia + valores límite.
+ * Aprende más: https://calidadsinhumo.com/istqb-sin-humo/istqb-con-codigo-parte-1
  */
 test.describe("Registro", () => {
-  test.describe("Casos validos", () => {
-    test("permite registrarse con datos validos", async ({
+  test.describe("Casos válidos", () => {
+    test("permite registrarse con datos válidos", async ({
       registerPage,
     }) => {
       await registerPage.register(VALID_USER);
@@ -21,16 +21,16 @@ test.describe("Registro", () => {
       expect(isSuccess).toBe(true);
     });
 
-    test("acepta password en el limite maximo (64 chars)", async ({
+    test("acepta password en el límite máximo (64 chars)", async ({
       registerPage,
     }) => {
       await registerPage.register(INVALID_USERS.maxPassword);
-      // 64 caracteres es el maximo valido — deberia aceptarse
+      // 64 caracteres es el máximo válido — debería aceptarse
       const isSuccess = await registerPage.isSuccessVisible();
       expect(isSuccess).toBe(true);
     });
 
-    test("acepta edad en el limite minimo (16)", async ({
+    test("acepta edad en el límite mínimo (16)", async ({
       registerPage,
     }) => {
       await registerPage.register(INVALID_USERS.minAge);
@@ -39,7 +39,7 @@ test.describe("Registro", () => {
     });
   });
 
-  test.describe("Casos invalidos — email", () => {
+  test.describe("Casos inválidos — email", () => {
     test("rechaza email sin dominio", async ({ registerPage }) => {
       await registerPage.register(INVALID_USERS.badEmail);
       const error = await registerPage.getFieldError("email");
@@ -47,7 +47,7 @@ test.describe("Registro", () => {
     });
   });
 
-  test.describe("Casos invalidos — password", () => {
+  test.describe("Casos inválidos — password", () => {
     test("rechaza password menor a 8 caracteres", async ({
       registerPage,
     }) => {
@@ -65,7 +65,7 @@ test.describe("Registro", () => {
     });
   });
 
-  test.describe("Casos invalidos — edad", () => {
+  test.describe("Casos inválidos — edad", () => {
     test("rechaza edad menor a 16", async ({ registerPage }) => {
       await registerPage.register(INVALID_USERS.tooYoung);
       const error = await registerPage.getFieldError("age");
@@ -80,13 +80,13 @@ test.describe("Registro", () => {
   });
 
   test.describe("Comportamiento del formulario", () => {
-    test("limpia el formulario despues de un registro exitoso", async ({
+    test("limpia el formulario después de un registro exitoso", async ({
       registerPage,
     }) => {
       await registerPage.register(VALID_USER);
       await registerPage.isSuccessVisible();
 
-      // El campo nombre deberia estar vacio despues del registro
+      // El campo nombre debería estar vacío después del registro
       const nameValue = await registerPage.getNameValue();
       expect(nameValue).toBe("");
     });

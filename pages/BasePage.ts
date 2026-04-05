@@ -3,10 +3,10 @@ import { type Page, type Locator } from "@playwright/test";
 /**
  * Clase base para todos los Page Objects.
  *
- * Cada pagina de tu aplicacion hereda de BasePage.
- * Asi no repites la logica comun (navegar, esperar carga, etc.).
+ * Cada página de tu aplicación hereda de BasePage.
+ * Así no repites la lógica común (navegar, esperar carga, etc.).
  *
- * Aprende mas sobre este patron:
+ * Aprende más sobre este patrón:
  * https://calidadsinhumo.com/guias/guia-de-junior-a-qa-automation-engineer
  */
 export abstract class BasePage {
@@ -16,20 +16,20 @@ export abstract class BasePage {
     this.page = page;
   }
 
-  /** URL relativa de la pagina (cada subclase la define). */
+  /** URL relativa de la página (cada subclase la define). */
   abstract get path(): string;
 
-  /** Navega a la pagina usando la baseURL del config. */
+  /** Navega a la página usando la baseURL del config. */
   async goto(): Promise<void> {
     await this.page.goto(this.path);
   }
 
-  /** Espera a que la pagina termine de cargar. */
+  /** Espera a que la página termine de cargar. */
   async waitForLoad(): Promise<void> {
     await this.page.waitForLoadState("domcontentloaded");
   }
 
-  /** Obtiene el titulo de la pagina. */
+  /** Obtiene el título de la página. */
   async getTitle(): Promise<string> {
     return this.page.title();
   }

@@ -2,12 +2,12 @@ import { type Page, type Locator } from "@playwright/test";
 import { BasePage } from "./BasePage";
 
 /**
- * Page Object para la pagina de Registro.
+ * Page Object para la página de Registro.
  *
- * Los campos y validaciones de este formulario estan disenados
- * para practicar particion de equivalencia y valores limite.
+ * Los campos y validaciones de este formulario están diseñados
+ * para practicar partición de equivalencia y valores límite.
  *
- * Aprende la tecnica:
+ * Aprende la técnica:
  * https://calidadsinhumo.com/istqb-sin-humo/istqb-con-codigo-parte-1
  */
 export class RegisterPage extends BasePage {
@@ -63,7 +63,7 @@ export class RegisterPage extends BasePage {
     return this.successMessage.isVisible();
   }
 
-  /** Devuelve el texto de error de un campo especifico. */
+  /** Devuelve el texto de error de un campo específico. */
   async getFieldError(
     field: "name" | "email" | "password" | "age"
   ): Promise<string> {

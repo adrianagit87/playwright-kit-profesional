@@ -1,19 +1,19 @@
 # Tests
 
-## Organizacion
+## Organización
 
 ```
 tests/
-├── login.spec.ts       # Tests de login (valores limite)
-├── register.spec.ts    # Tests de registro (particion de equivalencia)
+├── login.spec.ts       # Tests de login (valores límite)
+├── register.spec.ts    # Tests de registro (partición de equivalencia)
 └── README.md           # Este archivo
 ```
 
 ## Convenciones
 
-- **Un archivo por pagina/funcionalidad.** No mezcles tests de login con tests de registro.
+- **Un archivo por página/funcionalidad.** No mezcles tests de login con tests de registro.
 - **Usa `test.describe`** para agrupar tests relacionados dentro del mismo archivo.
-- **Nombres descriptivos.** El nombre del test debe decir que esperas que pase:
+- **Nombres descriptivos.** El nombre del test debe decir qué esperas que pase:
   - Bien: `"rechaza password menor a 8 caracteres"`
   - Mal: `"test password"`
 - **Datos centralizados.** Usa `test-data/users.ts` en vez de hardcodear strings en los tests.
@@ -40,7 +40,7 @@ npm run test:ui
 
 ## Agregar un test nuevo
 
-1. Si es una pagina nueva, crea su Page Object en `pages/`
+1. Si es una página nueva, crea su Page Object en `pages/`
 2. Agrega el fixture en `fixtures/base.fixture.ts`
 3. Crea el archivo `.spec.ts` en este directorio
 4. Importa `test` y `expect` desde `../fixtures/base.fixture`

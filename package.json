@@ -1,7 +1,7 @@
 {
   "name": "playwright-kit-profesional",
   "version": "1.0.0",
-  "description": "Kit de arranque profesional para automatizacion con Playwright + TypeScript. Listo para hacer fork y empezar a testear.",
+  "description": "Kit de arranque profesional para automatización con Playwright + TypeScript. Listo para hacer fork y empezar a testear.",
   "scripts": {
     "test": "npx playwright test",
     "test:headed": "npx playwright test --headed",

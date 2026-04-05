@@ -2,18 +2,18 @@ import { test, expect } from "../fixtures/base.fixture";
 import { LOGIN_CREDENTIALS } from "../test-data/users";
 
 /**
- * Tests para la pagina de Login.
+ * Tests para la página de Login.
  *
  * Estos tests demuestran:
- * - Como usar fixtures (loginPage se inyecta automaticamente)
- * - Como organizar tests con describe/test
- * - Como verificar casos validos e invalidos
+ * - Cómo usar fixtures (loginPage se inyecta automáticamente)
+ * - Cómo organizar tests con describe/test
+ * - Cómo verificar casos válidos e inválidos
  *
- * Tecnica ISTQB aplicada: valores limite (rate limiting).
- * Aprende mas: https://calidadsinhumo.com/istqb-sin-humo/istqb-con-codigo-parte-1
+ * Técnica ISTQB aplicada: valores límite (rate limiting).
+ * Aprende más: https://calidadsinhumo.com/istqb-sin-humo/istqb-con-codigo-parte-1
  */
 test.describe("Login", () => {
-  test("permite iniciar sesion con credenciales validas", async ({
+  test("permite iniciar sesión con credenciales válidas", async ({
     loginPage,
     page,
   }) => {
@@ -22,7 +22,7 @@ test.describe("Login", () => {
       LOGIN_CREDENTIALS.valid.password
     );
 
-    // Despues del login exitoso, deberia redirigir al dashboard
+    // Después del login exitoso, debería redirigir al dashboard
     await expect(page).toHaveURL(/\/(dashboard|cursos)/);
   });
 
@@ -52,7 +52,7 @@ test.describe("Login", () => {
       );
     }
 
-    // El sexto intento deberia mostrar mensaje de bloqueo
+    // El sexto intento debería mostrar mensaje de bloqueo
     const isLocked = await loginPage.isLockedOut();
     expect(isLocked).toBe(true);
   });

@@ -1,7 +1,7 @@
 /**
  * Datos de prueba para los tests.
  *
- * Centralizar los datos aqui evita duplicacion y facilita el mantenimiento.
+ * Centralizar los datos aquí evita duplicación y facilita el mantenimiento.
  * Si un dato cambia (ej: el email de prueba), lo cambias en un solo lugar.
  */
 
@@ -13,7 +13,7 @@ export const VALID_USER = {
 } as const;
 
 export const INVALID_USERS = {
-  /** Email sin dominio — deberia ser rechazado. */
+  /** Email sin dominio — debería ser rechazado. */
   badEmail: {
     name: "Test User",
     email: "usuario@",
@@ -21,7 +21,7 @@ export const INVALID_USERS = {
     age: "25",
   },
 
-  /** Password demasiado corta (7 chars, minimo es 8). */
+  /** Password demasiado corta (7 chars, mínimo es 8). */
   shortPassword: {
     name: "Test User",
     email: "test@ejemplo.com",
@@ -29,7 +29,7 @@ export const INVALID_USERS = {
     age: "25",
   },
 
-  /** Password en el limite maximo (64 chars — deberia ser aceptada). */
+  /** Password en el límite máximo (64 chars — debería ser aceptada). */
   maxPassword: {
     name: "Test User",
     email: "test@ejemplo.com",
@@ -37,7 +37,7 @@ export const INVALID_USERS = {
     age: "25",
   },
 
-  /** Password que excede el maximo (65 chars — deberia ser rechazada). */
+  /** Password que excede el máximo (65 chars — debería ser rechazada). */
   overMaxPassword: {
     name: "Test User",
     email: "test@ejemplo.com",
@@ -45,7 +45,7 @@ export const INVALID_USERS = {
     age: "25",
   },
 
-  /** Edad por debajo del minimo (15, minimo es 16). */
+  /** Edad por debajo del mínimo (15, mínimo es 16). */
   tooYoung: {
     name: "Test User",
     email: "test@ejemplo.com",
@@ -53,7 +53,7 @@ export const INVALID_USERS = {
     age: "15",
   },
 
-  /** Edad en el limite minimo (16 — deberia ser aceptada). */
+  /** Edad en el límite mínimo (16 — debería ser aceptada). */
   minAge: {
     name: "Test User",
     email: "test@ejemplo.com",
@@ -61,7 +61,7 @@ export const INVALID_USERS = {
     age: "16",
   },
 
-  /** Edad por encima del maximo (100, maximo es 99). */
+  /** Edad por encima del máximo (100, máximo es 99). */
   tooOld: {
     name: "Test User",
     email: "test@ejemplo.com",

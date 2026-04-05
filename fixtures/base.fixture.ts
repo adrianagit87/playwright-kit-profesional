@@ -5,11 +5,11 @@ import { RegisterPage } from "../pages/RegisterPage";
 /**
  * Fixtures personalizados para el Kit de arranque.
  *
- * Los fixtures crean las instancias de tus Page Objects automaticamente.
+ * Los fixtures crean las instancias de tus Page Objects automáticamente.
  * En vez de escribir `new LoginPage(page)` en cada test, simplemente
- * pides `loginPage` como parametro y Playwright se encarga del resto.
+ * pides `loginPage` como parámetro y Playwright se encarga del resto.
  *
- * Aprende mas sobre fixtures:
+ * Aprende más sobre fixtures:
  * https://calidadsinhumo.com/guias/guia-de-junior-a-qa-automation-engineer
  */
 

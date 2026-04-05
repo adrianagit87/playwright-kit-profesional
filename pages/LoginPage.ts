@@ -2,7 +2,7 @@ import { type Page, type Locator } from "@playwright/test";
 import { BasePage } from "./BasePage";
 
 /**
- * Page Object para la pagina de Login.
+ * Page Object para la página de Login.
  *
  * Encapsula todos los selectores y acciones del login.
  * Si la UI cambia, solo actualizas este archivo — los tests no se tocan.
@@ -28,7 +28,7 @@ export class LoginPage extends BasePage {
     return "/login";
   }
 
-  /** Llena el formulario y hace clic en iniciar sesion. */
+  /** Llena el formulario y hace clic en iniciar sesión. */
   async login(email: string, password: string): Promise<void> {
     await this.emailInput.fill(email);
     await this.passwordInput.fill(password);

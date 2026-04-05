@@ -1,12 +1,12 @@
 import { defineConfig, devices } from "@playwright/test";
 
 /**
- * Configuracion de Playwright para el Kit de arranque profesional.
+ * Configuración de Playwright para el Kit de arranque profesional.
  *
  * Por defecto apunta a Academia sin Humo (playground.calidadsinhumo.com).
  * Puedes cambiarlo creando un archivo .env con tu propia BASE_URL.
  *
- * Mas info: https://calidadsinhumo.com/guias/guia-de-qa-manual-a-automatizacion
+ * Más info: https://calidadsinhumo.com/guias/guia-de-qa-manual-a-automatizacion
  */
 export default defineConfig({
   testDir: "./tests",
