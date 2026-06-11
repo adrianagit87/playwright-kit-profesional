@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    timeout-minutes: 60
+    timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -19,15 +19,19 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
-      - name: Instalar navegadores de Playwright
-        run: npx playwright install --with-deps
+      # Solo Chromium en CI: instalar los deps de los 3 navegadores se
+      # cuelga en ubuntu-latest (runs de 1h muertos por timeout). Para
+      # validar el Kit alcanza un navegador; corré los 3 en local.
+      - name: Instalar Chromium de Playwright
+        timeout-minutes: 5
+        run: npx playwright install chromium --with-deps
 
       # Los tests @revela-bug fallan A PROPÓSITO contra el playground
       # (revelan sus bugs intencionales — ver tests/README.md). El CI los
       # excluye para validar solo lo que debe estar verde; corrélos local
       # para vivir la experiencia de encontrar los bugs.
       - name: Ejecutar tests (sin los que revelan bugs del playground)
-        run: npx playwright test --grep-invert "@revela-bug"
+        run: npx playwright test --project=chromium --grep-invert "@revela-bug"
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
