@@ -1,5 +1,28 @@
 # Tests
 
+## 🐛 Algunos tests fallan a propósito (y está bien)
+
+Este Kit apunta por defecto al playground [Academia sin Humo](https://playground.calidadsinhumo.com),
+que tiene **bugs intencionales** para que practiques. Los tests de este Kit están
+escritos contra la **especificación** (lo que la app DEBERÍA hacer), así que cuando
+un test se pone rojo no significa que el Kit esté roto: significa que **acabás de
+encontrar un bug real**. Ese es exactamente tu trabajo como QA.
+
+Tests que fallan hoy contra el playground:
+
+| Test | Bug que revela | Técnica ISTQB |
+|------|----------------|---------------|
+| `register.spec.ts` → "rechaza password mayor a 64 caracteres" | **R-1**: la app acepta 65 caracteres | Valores límite |
+| `register.spec.ts` → "rechaza email sin dominio" | **R-2**: la app acepta `usuario@` sin dominio | Partición de equivalencia |
+| `register.spec.ts` → "limpia el formulario después de un registro exitoso" | **R-3**: el formulario no se limpia | Comportamiento del formulario |
+
+Cada rojo es una mini-lección: abrí el test, leé qué esperaba según la spec,
+y compará con lo que la app hace de verdad. Después validá tu hallazgo en el
+[modo desafío](https://playground.calidadsinhumo.com/desafio).
+
+> 💡 Si apuntás `BASE_URL` a tu propia aplicación (una sin bugs intencionales),
+> los tests deberían pasar todos. El Kit no está roto — el playground sí, a propósito.
+
 ## Organización
 
 ```

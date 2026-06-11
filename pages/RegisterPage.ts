@@ -58,9 +58,20 @@ export class RegisterPage extends BasePage {
     await this.submitButton.click();
   }
 
-  /** Devuelve true si el mensaje de exito es visible. */
+  /**
+   * Devuelve true si el mensaje de éxito aparece.
+   *
+   * Espera hasta 10s: el registro hace un request al servidor y contra
+   * un deploy real (no localhost) la respuesta tarda. Un isVisible()
+   * instantáneo perdería la carrera y daría falsos negativos.
+   */
   async isSuccessVisible(): Promise<boolean> {
-    return this.successMessage.isVisible();
+    try {
+      await this.successMessage.waitFor({ state: "visible", timeout: 10_000 });
+      return true;
+    } catch {
+      return false;
+    }
   }
 
   /** Devuelve el texto de error de un campo específico. */

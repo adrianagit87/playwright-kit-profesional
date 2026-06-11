@@ -15,15 +15,17 @@ import { LOGIN_CREDENTIALS } from "../test-data/users";
 test.describe("Login", () => {
   test("permite iniciar sesión con credenciales válidas", async ({
     loginPage,
-    page,
   }) => {
     await loginPage.login(
       LOGIN_CREDENTIALS.valid.email,
       LOGIN_CREDENTIALS.valid.password
     );
 
-    // Después del login exitoso, debería redirigir al dashboard
-    await expect(page).toHaveURL(/\/(dashboard|cursos)/);
+    // La app es una SPA: tras el login exitoso muestra la bienvenida
+    // inline en /login, sin redirigir. Verificamos el estado visible,
+    // no la URL — testea lo que el usuario VE, no la mecánica interna.
+    const welcome = await loginPage.getWelcomeText();
+    expect(welcome).toContain(LOGIN_CREDENTIALS.valid.name);
   });
 
   test("muestra error con password incorrecta", async ({ loginPage }) => {

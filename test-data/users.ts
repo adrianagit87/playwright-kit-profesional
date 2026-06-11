@@ -6,8 +6,11 @@
  */
 
 export const VALID_USER = {
-  name: "Ana Garcia",
-  email: "ana.garcia@ejemplo.com",
+  // Ojo: NO usar ana.garcia@ejemplo.com acá — es el usuario semilla del
+  // playground (existe en toda sesión) y el registro rechaza emails
+  // duplicados. Para REGISTRAR usá un email libre; el semilla es para LOGIN.
+  name: "Lucia Fernandez",
+  email: "lucia.fernandez@ejemplo.com",
   password: "Segura2026!",
   age: "28",
 } as const;
@@ -72,6 +75,8 @@ export const INVALID_USERS = {
 
 export const LOGIN_CREDENTIALS = {
   valid: {
+    // Usuario semilla del playground (siempre existe, en toda sesión).
+    name: "Ana",
     email: "ana.garcia@ejemplo.com",
     password: "Segura2026!",
   },

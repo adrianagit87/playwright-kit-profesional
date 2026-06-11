@@ -14,6 +14,7 @@ export class LoginPage extends BasePage {
   readonly submitButton: Locator;
   readonly errorMessage: Locator;
   readonly lockoutMessage: Locator;
+  readonly welcomeMessage: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -22,6 +23,7 @@ export class LoginPage extends BasePage {
     this.submitButton = this.getByTestId("login-submit");
     this.errorMessage = this.getByTestId("login-error");
     this.lockoutMessage = this.getByTestId("login-lockout");
+    this.welcomeMessage = this.getByTestId("login-welcome");
   }
 
   get path(): string {
@@ -44,5 +46,11 @@ export class LoginPage extends BasePage {
   /** Devuelve true si el mensaje de bloqueo es visible. */
   async isLockedOut(): Promise<boolean> {
     return this.lockoutMessage.isVisible();
+  }
+
+  /** Devuelve el texto de bienvenida tras un login exitoso. */
+  async getWelcomeText(): Promise<string> {
+    await this.welcomeMessage.waitFor({ state: "visible" });
+    return this.welcomeMessage.innerText();
   }
 }
