@@ -8,13 +8,21 @@ escritos contra la **especificación** (lo que la app DEBERÍA hacer), así que 
 un test se pone rojo no significa que el Kit esté roto: significa que **acabás de
 encontrar un bug real**. Ese es exactamente tu trabajo como QA.
 
-Tests que fallan hoy contra el playground:
+Tests que fallan hoy contra el playground (etiquetados con `@revela-bug`):
 
 | Test | Bug que revela | Técnica ISTQB |
 |------|----------------|---------------|
 | `register.spec.ts` → "rechaza password mayor a 64 caracteres" | **R-1**: la app acepta 65 caracteres | Valores límite |
 | `register.spec.ts` → "rechaza email sin dominio" | **R-2**: la app acepta `usuario@` sin dominio | Partición de equivalencia |
 | `register.spec.ts` → "limpia el formulario después de un registro exitoso" | **R-3**: el formulario no se limpia | Comportamiento del formulario |
+
+```bash
+# Correr SOLO los tests que revelan bugs (para estudiarlos)
+npx playwright test --grep "@revela-bug"
+
+# Correr todo MENOS esos (lo que hace el CI — debería dar verde)
+npx playwright test --grep-invert "@revela-bug"
+```
 
 Cada rojo es una mini-lección: abrí el test, leé qué esperaba según la spec,
 y compará con lo que la app hace de verdad. Después validá tu hallazgo en el

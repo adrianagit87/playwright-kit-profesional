@@ -40,7 +40,8 @@ test.describe("Registro", () => {
   });
 
   test.describe("Casos inválidos — email", () => {
-    test("rechaza email sin dominio", async ({ registerPage }) => {
+    // @revela-bug: falla contra el playground (bug R-2) — ver tests/README.md
+    test("rechaza email sin dominio @revela-bug", async ({ registerPage }) => {
       await registerPage.register(INVALID_USERS.badEmail);
       const error = await registerPage.getFieldError("email");
       expect(error).toBeTruthy();
@@ -56,7 +57,8 @@ test.describe("Registro", () => {
       expect(error).toBeTruthy();
     });
 
-    test("rechaza password mayor a 64 caracteres", async ({
+    // @revela-bug: falla contra el playground (bug R-1) — ver tests/README.md
+    test("rechaza password mayor a 64 caracteres @revela-bug", async ({
       registerPage,
     }) => {
       await registerPage.register(INVALID_USERS.overMaxPassword);
@@ -80,7 +82,8 @@ test.describe("Registro", () => {
   });
 
   test.describe("Comportamiento del formulario", () => {
-    test("limpia el formulario después de un registro exitoso", async ({
+    // @revela-bug: falla contra el playground (bug R-3) — ver tests/README.md
+    test("limpia el formulario después de un registro exitoso @revela-bug", async ({
       registerPage,
     }) => {
       await registerPage.register(VALID_USER);

@@ -22,8 +22,12 @@ jobs:
       - name: Instalar navegadores de Playwright
         run: npx playwright install --with-deps
 
-      - name: Ejecutar tests
-        run: npx playwright test
+      # Los tests @revela-bug fallan A PROPÓSITO contra el playground
+      # (revelan sus bugs intencionales — ver tests/README.md). El CI los
+      # excluye para validar solo lo que debe estar verde; corrélos local
+      # para vivir la experiencia de encontrar los bugs.
+      - name: Ejecutar tests (sin los que revelan bugs del playground)
+        run: npx playwright test --grep-invert "@revela-bug"
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
