@@ -9,22 +9,18 @@ jobs:
   test:
     timeout-minutes: 15
     runs-on: ubuntu-latest
+    # Container oficial de Playwright: navegadores PREINSTALADOS.
+    # `npx playwright install` se cuelga en los runners de GitHub
+    # (la descarga termina y el proceso queda zombi), así que lo
+    # eliminamos de la ecuación. La versión del container DEBE
+    # coincidir con la de @playwright/test en package-lock.json.
+    container:
+      image: mcr.microsoft.com/playwright:v1.59.1-noble
     steps:
       - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v5
-        with:
-          node-version: lts/*
-
       - name: Instalar dependencias
         run: npm ci
-
-      # Solo Chromium en CI: instalar los deps de los 3 navegadores se
-      # cuelga en ubuntu-latest (runs de 1h muertos por timeout). Para
-      # validar el Kit alcanza un navegador; corré los 3 en local.
-      - name: Instalar Chromium de Playwright
-        timeout-minutes: 5
-        run: npx playwright install chromium --with-deps
 
       # Los tests @revela-bug fallan A PROPÓSITO contra el playground
       # (revelan sus bugs intencionales — ver tests/README.md). El CI los
@@ -32,6 +28,8 @@ jobs:
       # para vivir la experiencia de encontrar los bugs.
       - name: Ejecutar tests (sin los que revelan bugs del playground)
         run: npx playwright test --project=chromium --grep-invert "@revela-bug"
+        env:
+          HOME: /root
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
