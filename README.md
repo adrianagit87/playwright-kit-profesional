@@ -37,7 +37,7 @@ npx playwright install
 ### Opción 2: Clona directamente
 
 ```bash
-git clone https://github.com/TU-USUARIO/playwright-kit-profesional.git
+git clone https://github.com/adrianagit87/playwright-kit-profesional.git
 cd playwright-kit-profesional
 npm install
 npx playwright install
@@ -125,9 +125,40 @@ Este Kit es parte del ecosistema de práctica de [Calidad sin Humo](https://cali
 
 ## Practica con Academia sin Humo
 
-[Academia sin Humo](https://playground.calidadsinhumo.com) es una app web diseñada para que practiques automatización. Tiene escenarios reales con bugs intencionales para que los encuentres y automatices.
+[Academia sin Humo](https://playground.calidadsinhumo.com) es una app web diseñada para que practiques automatización. Tiene 17 bugs sembrados a propósito, cada uno con su técnica de diseño de pruebas detrás, para que los encuentres y los automatices.
 
 Los tests de este Kit ya apuntan a la Academia. Haz fork, ejecuta `npm test`, y empieza a practicar.
+
+## Tus tests se pusieron en rojo. ¿Y ahora?
+
+Eso está bien: los tests de este Kit están escritos contra la especificación, así que un rojo es un bug encontrado, no un Kit roto. El detalle de cada uno está en [`tests/README.md`](tests/README.md).
+
+Lo que sigue es la parte que casi nadie hace: entender **por qué** ese bug estaba ahí y cómo se busca esa familia de errores sin tropezársela de casualidad.
+
+| Lo que encontraste | La técnica que lo caza | Dónde se aprende completa |
+|---|---|---|
+| **R-1**: acepta un password de 65 caracteres cuando el límite es 64 | Valores límite | [Automatización con Playwright: de cero a cazador de bugs](https://playground.calidadsinhumo.com/catalogo/playwright-cazador-bugs) |
+| **R-2**: acepta `usuario@` sin dominio | Partición de equivalencia | [Automatización con Playwright: de cero a cazador de bugs](https://playground.calidadsinhumo.com/catalogo/playwright-cazador-bugs) |
+| **R-3**: el formulario no se limpia después de registrar | Comportamiento del formulario y estado | [Automatización con Playwright: de cero a cazador de bugs](https://playground.calidadsinhumo.com/catalogo/playwright-cazador-bugs) |
+
+Los otros 11 bugs de la Academia viven en `/cursos`, `/mi-progreso`, `/reserva`, `/estudiantes` y `/perfil`, y este Kit todavía no los cubre. Si quieres practicar, ese es tu siguiente ejercicio: escribe el Page Object, escribe el test contra lo que la app **debería** hacer, y fíjate si se pone rojo.
+
+## Los cursos, si quieres seguir
+
+El Kit te da la estructura. La Academia te da el método completo: hay seis cursos con cuenta propia, progreso por lección, quizzes y un certificado con código verificable al terminar. La inscripción es gratuita y abierta.
+
+- [Programación básica para QA (que quiere automatizar) con IA](https://playground.calidadsinhumo.com/catalogo/programacion-qa) — si el código todavía te frena
+- [Automatización con Playwright: de cero a cazador de bugs](https://playground.calidadsinhumo.com/catalogo/playwright-cazador-bugs) — el camino natural desde este Kit
+- [API Testing con Playwright: caza bugs bajo la UI](https://playground.calidadsinhumo.com/catalogo/api-cazador-bugs)
+- [CI/CD para QA con IA](https://playground.calidadsinhumo.com/catalogo/ci-cd-para-qa)
+- [IA aplicada al testing](https://playground.calidadsinhumo.com/catalogo/ia-para-qa)
+- [Testing de agentes de IA: evals, seguridad y regresión](https://playground.calidadsinhumo.com/catalogo/testing-agentes-ia)
+
+El catálogo completo está en [playground.calidadsinhumo.com/catalogo](https://playground.calidadsinhumo.com/catalogo).
+
+## Licencia
+
+MIT. Úsalo, cámbialo y llévatelo a tu trabajo sin pedir permiso.
 
 ---
 
