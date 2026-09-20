@@ -135,11 +135,13 @@ Eso está bien: los tests de este Kit están escritos contra la especificación,
 
 Lo que sigue es la parte que casi nadie hace: entender **por qué** ese bug estaba ahí y cómo se busca esa familia de errores sin tropezársela de casualidad.
 
-| Lo que encontraste | La técnica que lo caza | Dónde se aprende completa |
+| Lo que encontraste | La técnica que lo caza | Léelo gratis en el blog |
 |---|---|---|
-| **R-1**: acepta un password de 65 caracteres cuando el límite es 64 | Valores límite | [Automatización con Playwright: de cero a cazador de bugs](https://playground.calidadsinhumo.com/catalogo/playwright-cazador-bugs) |
-| **R-2**: acepta `usuario@` sin dominio | Partición de equivalencia | [Automatización con Playwright: de cero a cazador de bugs](https://playground.calidadsinhumo.com/catalogo/playwright-cazador-bugs) |
-| **R-3**: el formulario no se limpia después de registrar | Comportamiento del formulario y estado | [Automatización con Playwright: de cero a cazador de bugs](https://playground.calidadsinhumo.com/catalogo/playwright-cazador-bugs) |
+| **R-1**: acepta un password de 65 caracteres cuando el límite es 64 | Valores límite | [Partición de equivalencia y valores límite, con ejemplos de código](https://calidadsinhumo.com/istqb-sin-humo/istqb-con-codigo-parte-1/) |
+| **R-2**: acepta `usuario@` sin dominio | Partición de equivalencia | [Partición de equivalencia y valores límite, con ejemplos de código](https://calidadsinhumo.com/istqb-sin-humo/istqb-con-codigo-parte-1/) |
+| **R-3**: el formulario no se limpia después de registrar | Comportamiento del formulario y estado | [Las cuatro técnicas ISTQB en un caso E2E real, con 30 tests](https://calidadsinhumo.com/istqb-sin-humo/istqb-con-codigo-parte-3/) |
+
+Esos artículos son gratis y no piden correo. Si después quieres el método completo, con ejercicios corregidos y certificado, está en [Automatización con Playwright: de cero a cazador de bugs](https://playground.calidadsinhumo.com/catalogo/playwright-cazador-bugs).
 
 ## Los 14 bugs que este Kit todavía no caza
 
