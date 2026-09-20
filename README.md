@@ -125,7 +125,7 @@ Este Kit es parte del ecosistema de práctica de [Calidad sin Humo](https://cali
 
 ## Practica con Academia sin Humo
 
-[Academia sin Humo](https://playground.calidadsinhumo.com) es una app web diseñada para que practiques automatización. Tiene 17 bugs sembrados a propósito, cada uno con su técnica de diseño de pruebas detrás, para que los encuentres y los automatices.
+[Academia sin Humo](https://playground.calidadsinhumo.com) es una app web diseñada para que practiques automatización. Tiene 17 bugs sembrados a propósito, cada uno con su técnica de diseño de pruebas detrás. Este Kit caza 3; los otros 14 están abiertos como tareas para que los caces tú.
 
 Los tests de este Kit ya apuntan a la Academia. Haz fork, ejecuta `npm test`, y empieza a practicar.
 
@@ -141,7 +141,18 @@ Lo que sigue es la parte que casi nadie hace: entender **por qué** ese bug esta
 | **R-2**: acepta `usuario@` sin dominio | Partición de equivalencia | [Automatización con Playwright: de cero a cazador de bugs](https://playground.calidadsinhumo.com/catalogo/playwright-cazador-bugs) |
 | **R-3**: el formulario no se limpia después de registrar | Comportamiento del formulario y estado | [Automatización con Playwright: de cero a cazador de bugs](https://playground.calidadsinhumo.com/catalogo/playwright-cazador-bugs) |
 
-Los otros 11 bugs de la Academia viven en `/cursos`, `/mi-progreso`, `/reserva`, `/estudiantes` y `/perfil`, y este Kit todavía no los cubre. Si quieres practicar, ese es tu siguiente ejercicio: escribe el Page Object, escribe el test contra lo que la app **debería** hacer, y fíjate si se pone rojo.
+## Los 14 bugs que este Kit todavía no caza
+
+La Academia tiene **17 bugs sembrados**. Este Kit caza **3**: los de registro que ves en la tabla de arriba. Los otros 14 viven en `/login`, `/cursos`, `/api/enroll`, `/mi-progreso`, `/reserva`, `/estudiantes` y `/perfil`, y no tienen test.
+
+No es un descuido, es tu ejercicio. **Cada uno está abierto como una tarea en [Issues](https://github.com/adrianagit87/playwright-kit-profesional/issues)**, y cada tarea te dice en qué página está el bug, con qué técnica se caza, qué dificultad tiene y qué leer si te trabas. Lo que no te dice es cuál es el bug: eso lo encuentras tú.
+
+**Cómo usarlas**
+
+1. Entra a [Issues](https://github.com/adrianagit87/playwright-kit-profesional/issues) y elige una. Si estás empezando, filtra por la etiqueta `good first issue`: son las de dificultad fácil y media.
+2. Comenta en la tarea que la vas a hacer, para que nadie más la tome al mismo tiempo.
+3. Haz fork del Kit, resuélvela y abre un Pull Request. Si el test se pone rojo contra el playground, lo hiciste bien: encontraste el bug.
+4. Si prefieres practicar sin enviar nada, también está bien. La tarea te sirve igual como guía.
 
 ## Los cursos, si quieres seguir
 
